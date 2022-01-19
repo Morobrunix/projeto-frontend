@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormComponent } from './form/form.component';
-import { ListComponent } from './list/list.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormComponent } from './Food/form/form.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListComponent } from './Food/list/list.component';
+import { ProdutoModule } from './Food/produto.module';
 
 
 
 @NgModule({
-  declarations: [
-    FormComponent,
-    ListComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  exports:[ProdutoModule]
 })
 export class FeatureModule { }
