@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Endereco } from 'src/app/core/Module/Endereco';
+import { FormComponent } from 'src/app/feature/Food/form/form.component';
 
 @Component({
   selector: 'shared-list',
@@ -24,8 +26,12 @@ entities: any[] = [];
 keys: string[]= [];
 inputValue: string = " ";
 
+
+
   constructor(private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+) { }
+
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe((value) => {
@@ -42,25 +48,21 @@ inputValue: string = " ";
    editEntity(id: number): void {
     this.router.navigate([id], { relativeTo: this.activatedRoute });
   }
+
   deleteProduto(id: number){
     const objDelete = {
     id,
     callback: this.setEntity
   };
-    this.deleteEntity.emit(objDelete);
+  this.deleteEntity.emit(objDelete);
   }
 
 
-  search(): void {
-    const objSearch = {
-      query: this.inputValue,
-      callback: this.setEntity
-    };
-    this.searchEntity.emit(objSearch);
+private setEntity(entity: any[]){
+  this.entities = entity
 
-  }
-private setEntity(entities: any){
-  this.entities=entities
 }
+
+
 
 }

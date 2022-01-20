@@ -22,7 +22,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.keys = Object.keys(this.formEntity.value).filter(
-      (key) => key !== 'id', ' imageUrl');
+      (key) => key !== 'id');
 
 
   this.activatedRoute.data.subscribe((value) => {
@@ -40,6 +40,7 @@ goBack(): void {
 clickOnSubmit(): void {
   if (this.formEntity.valid) {
     this.submit.emit(this.formEntity.value);
+
   }
 }
 

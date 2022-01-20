@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormComponent } from './Food/form/form.component';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListComponent } from './Food/list/list.component';
-import { ProdutoModule } from './Food/produto.module';
+import { FormsModule} from '@angular/forms';
+import { EnderecoModule } from './Food/endereco.module';
+import { FeatureRoutingModule } from './feature-routing.module';
 
 
 
@@ -12,9 +10,10 @@ import { ProdutoModule } from './Food/produto.module';
   declarations: [],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    FormsModule
+    FeatureRoutingModule,
+    EnderecoModule,
+    FormsModule,
   ],
-  exports:[ProdutoModule]
+  exports:[]
 })
 export class FeatureModule { }

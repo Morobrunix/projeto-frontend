@@ -1,19 +1,18 @@
-<div>
-  <input type="text" [(ngModel)]="inputValue" (keyup.enter)="search()" />
-  <button mat-button color="primary" (click)="Add()">Adicionar</button>
-</div>
-<table>
-  <tr>
-      <th *ngFor='let header of headers'>
-        {{header}}
-      </th>
-  </tr>
-  <tr *ngFor="let entity of entities">
 
+
+  <table >
+
+    <th *ngFor='let header of headers'>
+      {{header}}
+    </th>
+
+  <tr *ngFor="let entity of entities">
     <td  *ngFor="let key of keys">{{ entity[key] }}</td>
-    <button mat-button color="warn" (click)="deleteProduto(entity.id)">Deletar</button>
-    <button mat-button color="accent" (click)="editEntity(entity.id)">Editar</button>
-    <button ></button>
+    <button mat-raised-button color= "warn" (click)="deleteProduto(entity.id)">Deletar</button>
+    <button mat-raised-button color="accent" (click)="editEntity(entity.id)">Editar</button>
   </tr>
+  <div>
+    <button mat-flat-button (click)="Add()">Adicionar</button>
+  </div>
   </table>
 

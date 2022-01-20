@@ -1,30 +1,30 @@
 import { Injectable, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from '../core/componentes/page-not-found/page-not-found.component';
 import { PermissionGuard } from '../core/guards/permission.guard';
-import { PageNotFoundComponent } from '../core/page-not-found/page-not-found.component';
-import { FormComponent } from '../shared/form/form.component';
+
+
 
 const routes: Routes = [
-
   {
     path: '',
-    redirectTo: 'products',
+    redirectTo: 'endereco',
     pathMatch: 'full',
   },
   {
-    path: 'products',
+    path: 'endereco',
     canActivate: [PermissionGuard],
     loadChildren: async () =>
-      import('./Food/produto.module').then((m) => m.ProdutoModule),
+      import('./Food/endereco.module').then((m) => m.EnderecoModule),
   },
   {
     path: "**",
-    component:PageNotFoundComponent
+    component: PageNotFoundComponent
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class FeatureRoutingModule { }

@@ -2,12 +2,13 @@
   <div *ngFor="let value of keys">
     <label [for]="value">{{ value }}:</label>
     <br />
+
     <input type="text" [formControlName]="value" [id]="value" />
     <br />
   </div>
 
-  <button type="button" (click)="clickOnSubmit()">Submit</button>
-  <button type="button" (click)="goBack()">Cancel</button>
+  <button mat-button color="accent" type="button" (click)="clickOnSubmit()">Adicionar</button>
+  <button  mat-button color="warn" type="button" (click)="goBack()">Cancelar</button>
 </form>
 
 

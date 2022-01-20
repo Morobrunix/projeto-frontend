@@ -1,8 +1,11 @@
+import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { DeleteEvent } from 'src/app/core/Module/DeletEvent';
-import { Produtos } from 'src/app/core/Module/Produtos';
+import { Endereco } from 'src/app/core/Module/Endereco';
 import { SearchEvent } from 'src/app/core/Module/SearchEvent';
-import { ProdutosService } from 'src/app/core/service/produtos.service';
+import { EnderecosService } from 'src/app/core/service/enderecos.service';
+
+
 
 @Component({
   selector: 'app-list',
@@ -10,10 +13,10 @@ import { ProdutosService } from 'src/app/core/service/produtos.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-produtos:Produtos[] = [];
-headers: string [] = ['id', 'Nome', 'Preço', 'Comentarios'];
 
-  constructor(private produtosService: ProdutosService) { }
+headers: string [] = ['id', 'Cidade','País', 'Estado', 'Cep', 'Ações'];
+
+  constructor(private produtosService: EnderecosService) { }
 
   ngOnInit(): void {}
 
@@ -31,5 +34,7 @@ headers: string [] = ['id', 'Nome', 'Preço', 'Comentarios'];
 
 
   }
+
+
 
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Produtos } from 'src/app/core/Module/Produtos';
-import { ProdutosService } from 'src/app/core/service/produtos.service';
+import { Endereco } from 'src/app/core/Module/Endereco';
+import { EnderecosService as enderecosService } from 'src/app/core/service/enderecos.service';
 
 @Component({
   selector: 'app-form',
@@ -11,27 +11,26 @@ import { ProdutosService } from 'src/app/core/service/produtos.service';
 })
 export class FormComponent implements OnInit {
 
-  formProduto:FormGroup = new FormGroup({});
+  formEndereco:FormGroup = new FormGroup({});
 
   constructor(private formBuilder: FormBuilder,
-    private produtosService: ProdutosService,
+    private enderecosService: enderecosService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.formProduto = this.formBuilder.group({
-      id:'',
-      imageUrl: '',
-      name:'',
-      price:'',
-      department:'',
-      comment:'',
-
+    this.formEndereco = this.formBuilder.group({
+      id: '',
+      city: ' ',
+      county: ' ',
+      state: '',
+      zipCode: ''
     });
     }
 
-    submit(event: Produtos): void {
-      this.produtosService.upsert(event).subscribe(() => {
+
+    submit(event: Endereco): void {
+      this.enderecosService.upsert(event).subscribe(() => {
         this.router.navigate(['..'], { relativeTo: this.activatedRoute });
       });
     }

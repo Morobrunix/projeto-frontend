@@ -8,20 +8,18 @@ import { FeatureModule } from './feature/feature.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
     FeatureModule,
     HttpClientModule,
     RouterModule.forRoot([]),
-    SharedModule,
     CoreModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
